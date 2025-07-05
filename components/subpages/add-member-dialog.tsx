@@ -54,7 +54,7 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
                 value={newMember.birthdate}
                 onChange={handleDateChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pr-10"
-                placeholder="DD/MM/YYYY"
+                placeholder="DD MM YYYY"
                 maxLength={10}
               />
               <Calendar className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" />
