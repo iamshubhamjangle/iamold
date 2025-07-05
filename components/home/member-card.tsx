@@ -51,18 +51,20 @@ const MemberCard: React.FC<MemberCardProps> = ({
       <DropdownMenuTrigger asChild>
         <div
           ref={triggerRef}
-          className="w-full text-left bg-white/80 backdrop-blur-sm rounded-md p-5 space-y-3 shadow-xs border hover:shadow-xl transition-all duration-300 hover:border-blue-300 focus:outline-none"
+          className="w-full text-left bg-background backdrop-blur-sm rounded-md p-5 space-y-3 shadow-xs border hover:shadow-xl transition-all duration-300 hover:border-blue-300 focus:outline-none"
           tabIndex={0}
           aria-label={`Options for ${member.name}`}
         >
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
-                <User className="w-4 h-4 text-blue-500" />
+                <User className="w-4 h-4 text-primary" />
               </div>
-              <h3 className="text-lg font-bold text-gray-800">{member.name}</h3>
+              <h3 className="text-lg font-bold text-foreground">
+                {member.name}
+              </h3>
             </div>
-            <p className="text-gray-600 mt-1">
+            <p className="text-muted-foreground mt-1">
               <Tooltip>
                 <TooltipTrigger>
                   {birthDate.toLocaleDateString("en-GB", {
@@ -78,7 +80,7 @@ const MemberCard: React.FC<MemberCardProps> = ({
             </p>
           </div>
           <div className="inline-block font-mono text-3xl font-bold">
-            <span className="text-blue-800">
+            <span className="text-primary">
               {age.years}Y {age.months}M {age.days}D{" "}
             </span>
             <span className="text-gray-500">

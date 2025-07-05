@@ -21,7 +21,7 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
 }) => (
   <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
     <div className="bg-background rounded-2xl shadow-2xl w-full max-w-md">
-      <div className="p-6">
+      <form className="p-6" onSubmit={onAdd}>
         <div className="flex items-center space-x-3 mb-6">
           <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
             <Plus className="w-6 h-6 text-white" />
@@ -59,19 +59,22 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
                 placeholder="DD/MM/YYYY"
                 maxLength={10}
               />
-              <Calendar className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" />
+              {/* TODO: Add calender date picker */}
+              {/* <Calendar className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" /> */}
             </div>
           </div>
         </div>
 
         <div className="flex space-x-3 mt-8">
           <button
+            type="button"
             onClick={onCancel}
             className="flex-1 px-4 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors duration-200 font-medium text-gray-700"
           >
             Cancel
           </button>
           <button
+            type="submit"
             onClick={onAdd}
             disabled={
               !newMember.name.trim() || newMember.birthdate.length !== 10
@@ -81,7 +84,7 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
             Add Member
           </button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 );

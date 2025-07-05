@@ -1,7 +1,7 @@
 export const Github = () => {
   return (
     <svg
-      fill="#4E3BF7"
+      className="fill-primary"
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"

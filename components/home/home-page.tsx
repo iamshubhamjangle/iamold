@@ -145,7 +145,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-secondary">
       <Header onAdd={() => setShowAddDialog(true)} />
 
       {/* Main Content */}
@@ -164,7 +164,7 @@ const HomePage: React.FC = () => {
                 />
               ))}
             </div>
-            <span className="block text-center p-4 text-gray-500 text-sm">
+            <span className="block text-center p-4 text-muted-foreground text-sm">
               Tap on card for more options
             </span>
           </>
