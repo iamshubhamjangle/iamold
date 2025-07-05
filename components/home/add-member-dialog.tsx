@@ -30,7 +30,7 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-primary-foreground mb-2">
               Name
             </label>
             <input
@@ -39,13 +39,13 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
               onChange={(e) =>
                 setNewMember({ ...newMember, name: e.target.value })
               }
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 text-primary-foreground"
               placeholder="Enter name"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium mb-2 text-primary-foreground">
               Birthday
             </label>
             <div className="relative">
@@ -53,7 +53,7 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
                 type="text"
                 value={newMember.birthdate}
                 onChange={handleDateChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pr-10 placeholder-gray-400"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pr-10 placeholder-gray-400 text-primary-foreground"
                 placeholder="DD/MM/YYYY"
                 maxLength={10}
               />
