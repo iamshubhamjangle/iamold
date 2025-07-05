@@ -177,47 +177,52 @@ const HomePage: React.FC = () => {
             </p>
           </div>
         ) : (
-          <div className="space-y-4">
-            {members.map((member) => {
-              const age = calculateAge(member.birthdate);
-              const birthDate = new Date(member.birthdate);
+          <>
+            <div className="space-y-4">
+              {members.map((member) => {
+                const age = calculateAge(member.birthdate);
+                const birthDate = new Date(member.birthdate);
 
-              return (
-                <div
-                  key={member.id}
-                  className="bg-white/80 backdrop-blur-sm rounded-2xl border border-blue-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-blue-300"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">
-                        {member.name}
-                      </h3>
-                      <p className="text-gray-600 mb-3">
+                return (
+                  <div
+                    key={member.id}
+                    className="bg-white/80 backdrop-blur-sm rounded-md p-5 space-y-3 shadow-xs border hover:shadow-xl transition-all duration-300 hover:border-blue-300"
+                  >
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-8 h-8 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
+                          <User className="w-4 h-4 text-blue-500" />
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-800">
+                          {member.name}
+                        </h3>
+                      </div>
+                      <p className="text-gray-600 mt-1">
                         {birthDate.toLocaleDateString("en-GB", {
                           day: "2-digit",
                           month: "2-digit",
                           year: "numeric",
                         })}
                       </p>
-                      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-lg inline-block font-mono text-lg font-bold">
-                        {age.years}Y {age.months}M {age.days}D{" "}
-                        <span className="text-blue-100">
-                          {age.hours.toString().padStart(2, "0")}:
-                          {age.minutes.toString().padStart(2, "0")}:
-                          {age.seconds.toString().padStart(2, "0")}
-                        </span>
-                      </div>
                     </div>
-                    <div className="ml-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
-                        <User className="w-8 h-8 text-blue-500" />
-                      </div>
+                    <div className="inline-block font-mono text-3xl font-bold">
+                      <span className="text-blue-800">
+                        {age.years}Y {age.months}M {age.days}D{" "}
+                      </span>
+                      <span className="text-gray-500">
+                        {age.hours.toString().padStart(2, "0")}:
+                        {age.minutes.toString().padStart(2, "0")}:
+                        {age.seconds.toString().padStart(2, "0")}
+                      </span>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+            <span className="block text-center p-4 text-gray-500 text-sm">
+              Tap & hold to delete
+            </span>
+          </>
         )}
       </div>
 
@@ -226,14 +231,17 @@ const HomePage: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="text-center space-y-4">
             <div className="flex justify-center space-x-6 text-gray-600">
-              <div className="flex items-center space-x-2">
+              <div className="flex flex-col items-center space-x-2 md:hidden">
+                <span>Free to use</span>
+                <span>Open Source</span>
+                <span>No login required</span>
+              </div>
+              <div className="hidden md:flex space-x-2">
                 <span>Free to use</span>
                 <span>•</span>
-                <span>No login required</span>
-                <span>•</span>
-                <span>Saved on your device</span>
-                <span>•</span>
                 <span>Open Source</span>
+                <span>•</span>
+                <span>No login required</span>
               </div>
             </div>
             <div className="text-xs text-gray-400">
