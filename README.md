@@ -1,3 +1,10 @@
+## Figma Idea
+![image](https://github.com/user-attachments/assets/4954504a-5c35-457e-a08f-7fa3cd9c3c30)
+
+## Project Screenshots
+![image](https://github.com/user-attachments/assets/40a53353-0362-4f70-a6a7-26d211dfdec7)
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
