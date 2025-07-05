@@ -1,5 +1,6 @@
 import { Calendar, Plus } from "lucide-react";
 import { ChangeEvent } from "react";
+import { ModeToggle } from "../ui/theme-toggle";
 
 type AddMemberDialogProps = {
   newMember: { name: string; birthdate: string };
@@ -19,18 +20,19 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
   handleDateChange,
 }) => (
   <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-    <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md">
+    <div className="bg-background rounded-2xl shadow-2xl w-full max-w-md">
       <div className="p-6">
         <div className="flex items-center space-x-3 mb-6">
           <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
             <Plus className="w-6 h-6 text-white" />
           </div>
-          <h2 className="text-xl font-bold text-gray-800">Add New Member</h2>
+          <h2 className="text-xl font-bold text-foreground">Add New Member</h2>
+          {/* <ModeToggle /> */}
         </div>
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-primary-foreground mb-2">
+            <label className="block text-sm font-medium text-foreground mb-2">
               Name
             </label>
             <input
@@ -39,13 +41,13 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
               onChange={(e) =>
                 setNewMember({ ...newMember, name: e.target.value })
               }
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 text-primary-foreground"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 text-foreground"
               placeholder="Enter name"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-2 text-primary-foreground">
+            <label className="block text-sm font-medium mb-2 text-foreground">
               Birthday
             </label>
             <div className="relative">
@@ -53,7 +55,7 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
                 type="text"
                 value={newMember.birthdate}
                 onChange={handleDateChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pr-10 placeholder-gray-400 text-primary-foreground"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pr-10 placeholder-gray-400 text-foreground"
                 placeholder="DD/MM/YYYY"
                 maxLength={10}
               />
