@@ -68,7 +68,7 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 px-4 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors duration-200 font-medium text-gray-700"
+            className="flex-1 px-4 py-3 border border-gray-300 rounded-xl transition-colors duration-200 font-medium text-foreground cursor-pointer"
           >
             Cancel
           </button>
@@ -78,7 +78,7 @@ const AddMemberDialog: React.FC<AddMemberDialogProps> = ({
             disabled={
               !newMember.name.trim() || newMember.birthdate.length !== 10
             }
-            className="flex-1 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-4 py-3 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+            className="flex-1 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-4 py-3 rounded-xl font-semibold disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed transition-all duration-200"
           >
             Add Member
           </button>

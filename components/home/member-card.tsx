@@ -51,7 +51,7 @@ const MemberCard: React.FC<MemberCardProps> = ({
       <DropdownMenuTrigger asChild>
         <div
           ref={triggerRef}
-          className="w-full text-left bg-background backdrop-blur-sm rounded-md p-5 space-y-3 shadow-xs border hover:shadow-xl transition-all duration-300 hover:border-blue-300 focus:outline-none"
+          className="w-full text-left bg-background backdrop-blur-sm rounded-md p-5 space-y-3 shadow-xs border hover:shadow-xl transition-all duration-300 hover:border-blue-300 focus:outline-none cursor-pointer"
           tabIndex={0}
           aria-label={`Options for ${member.name}`}
         >
