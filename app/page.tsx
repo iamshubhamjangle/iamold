@@ -1,11 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ui/theme-toggle";
+import HomePage from "@/components/subpages/home-page";
 
 export default function Home() {
   return (
     <div>
-      <Button>Click me</Button>
-      <ModeToggle />
+      <HomePage />
     </div>
   );
 }
