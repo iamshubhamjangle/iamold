@@ -1,15 +1,17 @@
-import { User } from "lucide-react";
+import { User, Trash2 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "../ui/dropdown-menu";
+import React, { useRef } from "react";
 
 type Member = {
   id: number;
   name: string;
   birthdate: string;
   originalInput: string;
-};
-
-type MemberCardProps = {
-  member: Member;
-  calculateAge: (birthdate: string) => Age;
 };
 
 type Age = {
@@ -21,38 +23,70 @@ type Age = {
   seconds: number;
 };
 
-const MemberCard: React.FC<MemberCardProps> = ({ member, calculateAge }) => {
+type MemberCardProps = {
+  member: Member;
+  calculateAge: (birthdate: string) => Age;
+  onDelete: () => void;
+};
+
+const MemberCard: React.FC<MemberCardProps> = ({
+  member,
+  calculateAge,
+  onDelete,
+}) => {
   const age = calculateAge(member.birthdate);
   const birthDate = new Date(member.birthdate);
 
+  // For accessibility: focus the trigger on click/tap
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
   return (
-    <div className="bg-white/80 backdrop-blur-sm rounded-md p-5 space-y-3 shadow-xs border hover:shadow-xl transition-all duration-300 hover:border-blue-300">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
-            <User className="w-4 h-4 text-blue-500" />
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          ref={triggerRef}
+          className="w-full text-left bg-white/80 backdrop-blur-sm rounded-md p-5 space-y-3 shadow-xs border hover:shadow-xl transition-all duration-300 hover:border-blue-300 focus:outline-none"
+          tabIndex={0}
+          aria-label={`Options for ${member.name}`}
+        >
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
+                <User className="w-4 h-4 text-blue-500" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-800">{member.name}</h3>
+            </div>
+            <p className="text-gray-600 mt-1">
+              {birthDate.toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              })}
+            </p>
           </div>
-          <h3 className="text-lg font-bold text-gray-800">{member.name}</h3>
-        </div>
-        <p className="text-gray-600 mt-1">
-          {birthDate.toLocaleDateString("en-GB", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          })}
-        </p>
-      </div>
-      <div className="inline-block font-mono text-3xl font-bold">
-        <span className="text-blue-800">
-          {age.years}Y {age.months}M {age.days}D{" "}
-        </span>
-        <span className="text-gray-500">
-          {age.hours.toString().padStart(2, "0")}:
-          {age.minutes.toString().padStart(2, "0")}:
-          {age.seconds.toString().padStart(2, "0")}
-        </span>
-      </div>
-    </div>
+          <div className="inline-block font-mono text-3xl font-bold">
+            <span className="text-blue-800">
+              {age.years}Y {age.months}M {age.days}D{" "}
+            </span>
+            <span className="text-gray-500">
+              {age.hours.toString().padStart(2, "0")}:
+              {age.minutes.toString().padStart(2, "0")}:
+              {age.seconds.toString().padStart(2, "0")}
+            </span>
+          </div>
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem
+          onClick={onDelete}
+          variant="destructive"
+          className="text-red-600"
+        >
+          <Trash2 className="w-4 h-4 mr-2" />
+          Delete
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 

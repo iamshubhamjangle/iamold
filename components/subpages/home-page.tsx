@@ -139,6 +139,11 @@ const HomePage: React.FC = () => {
     }
   };
 
+  // Delete member by id
+  const handleDeleteMember = (id: number) => {
+    setMembers((prev) => prev.filter((m) => m.id !== id));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <Header onAdd={() => setShowAddDialog(true)} />
@@ -155,6 +160,7 @@ const HomePage: React.FC = () => {
                   key={member.id}
                   member={member}
                   calculateAge={calculateAge}
+                  onDelete={() => handleDeleteMember(member.id)}
                 />
               ))}
             </div>
