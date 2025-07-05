@@ -1,6 +1,6 @@
 import { Calendar, Plus } from "lucide-react";
 import { ChangeEvent } from "react";
-import { ModeToggle } from "../ui/theme-toggle";
+// import { ModeToggle } from "../ui/theme-toggle";
 
 type AddMemberDialogProps = {
   newMember: { name: string; birthdate: string };

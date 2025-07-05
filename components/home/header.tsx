@@ -5,7 +5,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { ModeToggle } from "../ui/theme-toggle";
+// import { ModeToggle } from "../ui/theme-toggle";
 
 type HeaderProps = {
   onAdd: () => void;
