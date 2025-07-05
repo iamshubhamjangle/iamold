@@ -4,7 +4,7 @@ const Footer: React.FC = () => (
       <div className="text-center space-y-4">
         <div className="flex justify-center space-x-6 text-gray-600">
           <div className="flex flex-col items-center space-x-2 md:hidden">
-            <span>Free to use</span>
+            <span>Free</span>
             <span>Open Source</span>
             <span>No login required</span>
           </div>
@@ -17,7 +17,14 @@ const Footer: React.FC = () => (
           </div>
         </div>
         <div className="text-xs text-gray-400">
-          Made with ❤️ for tracking the precious moments of life
+          Made with ❤️ by{" "}
+          <a
+            className="underline"
+            href="https://www.linkedin.com/in/imshubhamjangle/"
+            target="_blank"
+          >
+            shubham jangle
+          </a>
         </div>
       </div>
     </div>

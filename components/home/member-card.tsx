@@ -1,11 +1,17 @@
+import React, { useRef } from "react";
 import { User, Trash2 } from "lucide-react";
+
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-} from "../ui/dropdown-menu";
-import React, { useRef } from "react";
+} from "@/components/ui/dropdown-menu";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 type Member = {
   id: number;
@@ -38,12 +44,12 @@ const MemberCard: React.FC<MemberCardProps> = ({
   const birthDate = new Date(member.birthdate);
 
   // For accessibility: focus the trigger on click/tap
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button
+        <div
           ref={triggerRef}
           className="w-full text-left bg-white/80 backdrop-blur-sm rounded-md p-5 space-y-3 shadow-xs border hover:shadow-xl transition-all duration-300 hover:border-blue-300 focus:outline-none"
           tabIndex={0}
@@ -57,11 +63,18 @@ const MemberCard: React.FC<MemberCardProps> = ({
               <h3 className="text-lg font-bold text-gray-800">{member.name}</h3>
             </div>
             <p className="text-gray-600 mt-1">
-              {birthDate.toLocaleDateString("en-GB", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-              })}
+              <Tooltip>
+                <TooltipTrigger>
+                  {birthDate.toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                  })}
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Date of birth</p>
+                </TooltipContent>
+              </Tooltip>
             </p>
           </div>
           <div className="inline-block font-mono text-3xl font-bold">
@@ -74,7 +87,7 @@ const MemberCard: React.FC<MemberCardProps> = ({
               {age.seconds.toString().padStart(2, "0")}
             </span>
           </div>
-        </button>
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem
@@ -97,7 +110,9 @@ const EmptyState: React.FC = () => (
     <div className="w-24 h-24 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
       <User className="w-12 h-12 text-blue-500" />
     </div>
-    <h2 className="text-2xl font-bold text-gray-800 mb-2">No members yet</h2>
+    <h2 className="text-2xl font-bold text-gray-800 mb-2">
+      No members added yet
+    </h2>
     <p className="text-gray-600 mb-8">
       Click the ADD button to add your first member and start tracking ages!
     </p>

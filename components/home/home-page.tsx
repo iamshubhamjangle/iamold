@@ -149,7 +149,7 @@ const HomePage: React.FC = () => {
       <Header onAdd={() => setShowAddDialog(true)} />
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 py-8 min-h-screen">
+      <div className="max-w-4xl mx-auto px-4 py-8 min-h-[calc(100vh-258px)]">
         {members.length === 0 ? (
           <EmptyState />
         ) : (
